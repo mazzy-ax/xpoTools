@@ -6,7 +6,7 @@
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
 
-*xpoTooles* features:
+*xpoTools* features:
 
 * convert jobs and classes `xpo` to `xpp` files (similar to `ax7`)
 * create target folders by groups in developer projects, AOT objects path, object prefix, project names
