@@ -1,0 +1,909 @@
+﻿Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: JobHelloWorld unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #JobHelloWorld
+    #static void JobHelloWorld(Args _args)
+    #{;
+    #    info("Hello, world!");
+    #}
+  ENDSOURCE
+
+***Element: FTM
+
+; Microsoft Dynamics AX MENUITEM : ActivitiesMain unloaded
+; --------------------------------------------------------------------------------
+  VERSION 1
+  
+  MENUITEM #ActivitiesMain
+    Type: 1
+    PROPERTIES
+      Name                #ActivitiesMain
+      Label               #@SYS114738
+      HelpText            #@SYS80901
+      Object              #smmActivities
+      RunOn               #Called from
+      SecurityKey         #BasicMisc
+    ENDPROPERTIES
+    
+  ENDMENUITEM
+  
+
+***Element: DBE
+
+; Microsoft Dynamics AX Enumtype : ABC unloaded
+; --------------------------------------------------------------------------------
+  ENUMTYPEVERSION 1
+  
+  ENUMTYPE #ABC
+    PROPERTIES
+      Name                #ABC
+      Label               #@SYS69410
+    ENDPROPERTIES
+    
+    TYPEELEMENTS
+      #None
+      PROPERTIES
+        Name                #None
+        Label               #@SYS1369
+        EnumValue           #0
+      ENDPROPERTIES
+      
+      #A
+      PROPERTIES
+        Name                #A
+        Label               #@SYS22523
+        EnumValue           #1
+      ENDPROPERTIES
+      
+      #B
+      PROPERTIES
+        Name                #B
+        Label               #@SYS22524
+        EnumValue           #2
+      ENDPROPERTIES
+      
+      #C
+      PROPERTIES
+        Name                #C
+        Label               #@SYS22525
+        EnumValue           #3
+      ENDPROPERTIES
+      
+    ENDTYPEELEMENTS
+  ENDENUMTYPE
+  
+
+***Element: DOK
+
+#KERNDOC:\\Classes\CLRObject
+VERSION 3
+
+PROPERTIES
+  Name                #CLRObject
+  HTMLHelpEnabled     #Yes
+  HTMLHelpFile        #HTMLHelpFileDeveloperDocs
+  HTMLHelpTopic       #AxDeveloperDocs.chm::/html/5F474634-1BD4-4ADB-B2A3-63DCF6468E0C.htm
+ENDPROPERTIES
+
+SOURCE
+ENDSOURCE
+ENDDOC
+
+***Element: DOK
+
+#KERNDOC:\\Classes\CLRObject\dispatch
+VERSION 3
+
+PROPERTIES
+  Name                #dispatch
+  HTMLHelpEnabled     #Yes
+  HTMLHelpFile        #HTMLHelpFileDeveloperDocs
+  HTMLHelpTopic       #AxDeveloperDocs.chm::/html/56490685-1152-4BCE-96C0-4141D61B3052.htm
+ENDPROPERTIES
+
+SOURCE
+ENDSOURCE
+ENDDOC
+
+***Element: DOK
+
+#KERNDOC:\\Classes\CLRObject\new
+VERSION 3
+
+PROPERTIES
+  Name                #new
+  HTMLHelpEnabled     #Yes
+  HTMLHelpFile        #HTMLHelpFileDeveloperDocs
+  HTMLHelpTopic       #AxDeveloperDocs.chm::/html/B74CEEAD-C937-4DA5-9868-CAD1467FA817.htm
+ENDPROPERTIES
+
+SOURCE
+ENDSOURCE
+ENDDOC
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysArgs unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysArgs
+    PROPERTIES
+      Name                #SysArgs
+      Extends             #Args
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #// This is a framework class. Customizing this class may cause problems with future upgrades to the software.
+        #class SysArgs extends Args implements SysPackable
+        #{
+        #    str             designName;
+        #    fieldId         lookupField;
+        #    str             lookupValue;
+        #    MenuItemType    menuItemType;
+        #    MenuItemName    menuItemName;
+        #    identifiername  name;
+        #    str             parm;
+        #    int             parmEnumType;
+        #    anyType         parmEnum;
+        #    Common          record;
+        #
+        #    #define.currentVersion(1)
+        #    #localmacro.currentList
+        #        designName,
+        #        lookupField,
+        #        lookupValue,
+        #        menuItemType,
+        #        menuItemName,
+        #        name,
+        #        parm,
+        #        parmEnumType,
+        #        parmEnum,
+        #        record
+        #    #endmacro
+        #}
+      ENDSOURCE
+      SOURCE #Pack
+        #public container pack()
+        #{
+        #    ;
+        #    designName      = this.designName();
+        #    lookupField     = this.lookupField();
+        #    lookupValue     = this.lookupValue();
+        #    menuItemType    = this.menuItemType();
+        #    menuItemName    = this.menuItemName();
+        #    name            = this.name();
+        #    parm            = this.parm();
+        #    parmEnumType    = this.parmEnumType();
+        #    parmEnum        = this.parmEnum();
+        #    record          = this.record();
+        #
+        #    return [#currentVersion, #currentList];
+        #}
+      ENDSOURCE
+      SOURCE #unpack
+        #public boolean unpack(container _pack)
+        #{
+        #    boolean         ret;
+        #    Integer         version    = RunBase::getVersion(_pack);
+        #
+        #    switch (version)
+        #    {
+        #        case #CurrentVersion:
+        #            [version, #CurrentList] = _pack;
+        #
+        #            this.designName(designName);
+        #            this.lookupField(lookupField);
+        #            this.lookupValue(lookupValue);
+        #            this.menuItemType(menuItemType);
+        #            this.menuItemName(menuItemName);
+        #            this.name(name);
+        #            this.parm(parm);
+        #            this.parmEnumType(parmEnumType);
+        #            this.parmEnum(parmEnum);
+        #            this.record(record);
+        #
+        #            ret = true;
+        #            break;
+        #        default:
+        #            ret = false;
+        #    }
+        #    return ret;
+        #}
+      ENDSOURCE
+      SOURCE #copyArgs
+        #/*
+        #    Can copy an args object data into another args object.
+        #*/
+        #static public Object copyArgs(Args _fromArgs, Args _toArgs)
+        #{
+        #    ;
+        #    if (_fromArgs && _toArgs)
+        #    {
+        #        _toArgs.caller(_fromArgs.caller());
+        #        _toArgs.object(_fromArgs.object());
+        #        _toArgs.parentWnd(_fromArgs.parentWnd());
+        #        _toArgs.parmObject(_fromArgs.parmObject());
+        #
+        #        _toArgs.designName(_fromArgs.designName());
+        #        _toArgs.lookupField(_fromArgs.lookupField());
+        #        _toArgs.lookupValue(_fromArgs.lookupValue());
+        #        _toArgs.menuItemType(_fromArgs.menuItemType());
+        #        _toArgs.menuItemName(_fromArgs.menuItemName());
+        #        _toArgs.name(_fromArgs.name());
+        #        _toArgs.parm(_fromArgs.parm());
+        #        _toArgs.parmEnumType(_fromArgs.parmEnumType());
+        #        _toArgs.parmEnum(_fromArgs.parmEnum());
+        #        _toArgs.record(_fromArgs.record());
+        #    }
+        #    return _toArgs;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #create
+        #static public SysArgs create(container _pack)
+        #{
+        #    SysArgs sysArgs = new SysArgs();
+        #    ;
+        #    sysArgs.unpack(_pack);
+        #    return sysArgs;
+        #}
+      ENDSOURCE
+      SOURCE #createFromArgs
+        #public static SysArgs createFromArgs(Args _args)
+        #{
+        #    SysArgs sysArgs;
+        #    ;
+        #    if (_args)
+        #    {
+        #        if (SysDictClass::isSuperclass(classNum(SysArgs), classidget(_args)))
+        #        {
+        #            sysArgs = SysArgs::copyArgs(_args, new SysArgs());
+        #        }
+        #        else
+        #        {
+        #            sysArgs = _args;
+        #        }
+        #    }
+        #    return sysArgs;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysGAC unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysGAC
+    PROPERTIES
+      Name                #SysGAC
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #// This is a framework class. Customizing this class may cause problems with future upgrades to the software.
+        #class SysGAC
+        #{
+        #    //
+        #    // System class, provides interface to
+        #    // .Net GAC (Global Assembly Cache).
+        #    //
+        #}
+      ENDSOURCE
+      SOURCE #readAssemblyReferences
+        #//
+        #// Enumerates assemblies in the GAC.
+        #// Returns GAC content in SysTmpGac temporary table.
+        #//
+        #private static SysTmpGac readAssemblyReferences(boolean _client = true)
+        #{
+        #    SysTmpGac   gacList;
+        #    str         name;
+        #    str         displayName;
+        #    str         culture;
+        #    str         publicKeyToken;
+        #    int         majorVersion = 0;
+        #    int         minorVersion = 0;
+        #    int         buildNumber = 0;
+        #    int         revisionNumber = 0;
+        #
+        #    container   assemblies;
+        #    int         i=0;
+        #    ;
+        #
+        #    if(_client)
+        #        assemblies = SysGAC::readClientAssemblies();
+        #    else
+        #        assemblies = SysGAC::readServerAssemblies();
+        #
+        #    for( i = 1; i <= conlen(assemblies); i++ )
+        #    {
+        #        [name,
+        #        displayName,
+        #        majorVersion,
+        #        minorVersion,
+        #        buildNumber,
+        #        revisionNumber,
+        #        culture,
+        #        publicKeyToken] = conpeek( assemblies, i );
+        #
+        #        gacList.ComponentName           = name;
+        #        gacList.ReferenceName           = name;
+        #        gacList.ComponentDisplayName    = displayName;
+        #        gacList.ComponentCulture        = culture;
+        #        gacList.ComponentPubKey         = publicKeyToken;
+        #        gacList.Version                 = int2str(majorVersion) + '.' + int2str(minorVersion) + '.' +
+        #                                          int2str(buildNumber)  + '.' + int2str(revisionNumber);
+        #
+        #        gacList.insert();
+        #    }
+        #
+        #    return gacList;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #readClientAssemblies
+        #static client container readClientAssemblies()
+        #{
+        #    Gac gac = new Gac();
+        #    ;
+        #    return gac.enumerateAssemblies();
+        #}
+      ENDSOURCE
+      SOURCE #readClientServerAssemblyReferences
+        #//
+        #// Enumerates assemblies in the GAC both on the client and the server.
+        #// Returns GAC content in SysTmpGac temporary table.
+        #//
+        #static SysTmpGac readClientServerAssemblyReferences()
+        #{
+        #    SysTmpGac    combinedGacList;
+        #    SysTmpGac    clientGacList;
+        #    Map         names = new Map(Types::String, Types::String);
+        #    ;
+        #
+        #    clientGacList     =   SysGAC::readAssemblyReferences(true);
+        #    combinedGacList   =   SysGAC::readAssemblyReferences(false);
+        #
+        #    while select combinedGacList
+        #    {
+        #        names.insert(combinedGacList.ComponentDisplayName, '');
+        #    }
+        #
+        #    while select clientGacList
+        #    {
+        #        if(!names.exists(clientGacList.ComponentDisplayName))
+        #        {
+        #            combinedGacList.data( clientGacList );
+        #            combinedGacList.insert();
+        #        }
+        #    }
+        #
+        #    return combinedGacList;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #readServerAssemblies
+        #static server container readServerAssemblies()
+        #{
+        #    Gac gac = new Gac();
+        #    ;
+        #    return gac.enumerateAssemblies();
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysLabel unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysLabel
+    PROPERTIES
+      Name                #SysLabel
+      Extends             #Label
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #// This is a framework class. Customizing this class may cause problems with future upgrades to the software.
+        #class SysLabel extends Label
+        #{
+        #    #define.specialChars('<>^?.:*-+')
+        #    #define.exactStr('"<\%1>"')
+        #    LanguageId  languageId;
+        #}
+      ENDSOURCE
+      SOURCE #languageId
+        #LanguageId languageId()
+        #{
+        #    return languageId;
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #void new(LanguageId _languageId)
+        #{
+        #    super(_languageId);
+        #    languageId = _languageId;
+        #}
+      ENDSOURCE
+      SOURCE #toString
+        #str toString()
+        #{
+        #    return strfmt('%1: %2',super(),languageId);
+        #}
+      ENDSOURCE
+      SOURCE #defaultModuleId
+        #static client server LabelModuleId defaultModuleId()
+        #{
+        #    LabelModuleId   labelModuleId;
+        #    Set             moduleSet       = new Set(Types::String);
+        #    SetIterator     setIterator;
+        #    ;
+        #    if (currentAOLayer() == UtilEntryLevel::sys)
+        #        return strupr(enum2str(UtilEntryLevel::sys));
+        #
+        #    moduleSet = SysLabel::findModules();
+        #
+        #    if (moduleSet.elements())
+        #    {
+        #        setIterator = new SetIterator(moduleSet);
+        #        setIterator.begin();
+        #
+        #        labelModuleId = setIterator.value();
+        #    }
+        #
+        #    return strupr(labelModuleId);
+        #}
+      ENDSOURCE
+      SOURCE #findModules
+        #public static client server Set findModules()
+        #{
+        #    LabelModuleId   labelModuleId;
+        #    Label           label;
+        #    Set             set = new Set(Types::String);
+        #    ;
+        #
+        #    switch (currentAOLayer())
+        #    {
+        #        case UtilEntryLevel::sys:
+        #            //
+        #            // SYS and GLS layers are merged, but the label file remains.
+        #            //
+        #            set.add(strupr(enum2str(UtilEntryLevel::sys)));
+        #            set.add(strupr(enum2str(UtilEntryLevel::gls)));
+        #            break;
+        #
+        #        case UtilEntryLevel::syp:
+        #            set.add(strupr(enum2str(currentAOLayer())));
+        #            break;
+        #
+        #        default :
+        #            label = new Label();
+        #            label.searchFirst('');
+        #            labelModuleId = label.getFirstLabelFile();
+        #            while (label.moreLabelFiles())
+        #            {
+        #                if (labelModuleId != enum2str(UtilEntryLevel::sys) &&
+        #                    labelModuleId != enum2str(UtilEntryLevel::syp) &&
+        #                    labelModuleId != enum2str(UtilEntryLevel::gls) &&
+        #                    labelModuleId != enum2str(UtilEntryLevel::glp))
+        #                {
+        #                    set.add(strupr(labelModuleId));
+        #                }
+        #
+        #                labelModuleId = label.getNextLabelFile();
+        #            }
+        #            break;
+        #    }
+        #    return set;
+        #}
+      ENDSOURCE
+      SOURCE #getLabelInstance
+        #public static client server Label getLabelInstance(LanguageId _languageId)
+        #{
+        #    SysGlobalCache cache = classFactory.globalCache();
+        #    Label label = cache.get(funcname(), _languageId, null);
+        #
+        #    if (!label)
+        #    {
+        #        label = new Label(_languageId);
+        #        cache.set(funcname(), _languageId, label);
+        #    }
+        #    return label;
+        #}
+      ENDSOURCE
+      SOURCE #isLabelId
+        #static boolean isLabelId(LabelId _potentialLabel)
+        #{
+        #    if (_potentialLabel && match('<\\@:a:a:a:d+>',_potentialLabel))
+        #    {
+        #        return true;
+        #    }
+        #    return false;
+        #}
+      ENDSOURCE
+      SOURCE #isLabelModuleId
+        #static boolean isLabelModuleId(LabelId _potentialLabel)
+        #{
+        #    if (_potentialLabel && !match('<\\@:a:a:a>',_potentialLabel))
+        #    {
+        #        return false;
+        #    }
+        #    return true;
+        #}
+      ENDSOURCE
+      SOURCE #labelId2ModuleId
+        #static LabelModuleId labelId2ModuleId(LabelId _labelId)
+        #{
+        #    LabelModuleId   labelModuleId;
+        #    container       pack = SysLabel::labelIdSplit(_labelId);
+        #
+        #    if (conlen(pack))
+        #    {
+        #        labelModuleId = conpeek(pack, 1);
+        #    }
+        #
+        #    return labelModuleId;
+        #}
+      ENDSOURCE
+      SOURCE #labelId2String
+        #static client server LabelType labelId2String(LabelId labelId, LanguageId languageId = LanguageTable::defaultLanguage())
+        #{
+        #    Label label;
+        #    ;
+        #
+        #    if (SysLabel::isLabelId(labelId))
+        #    {
+        #        label = SysLabel::getLabelInstance(languageId);
+        #        return label.extractString(labelId);
+        #    }
+        #    return '';
+        #}
+      ENDSOURCE
+      SOURCE #labelId2String2
+        #/*
+        # * Accepts a string - if it is a labelId the value is extracted - otherwise the text is returned
+        # */
+        #static client server LabelType labelId2String2(LabelType labelId, LanguageId languageId = LanguageTable::defaultLanguage())
+        #{
+        #    Label label;
+        #    ;
+        #
+        #    if (SysLabel::isLabelId(labelId))
+        #    {
+        #        label = SysLabel::getLabelInstance(languageId);
+        #        return label.extractString(labelId);
+        #    }
+        #    return labelId;
+        #}
+        #
+      ENDSOURCE
+      SOURCE #labelIdSplit
+        #static container labelIdSplit(LabelId _labelId)
+        #{
+        #    LabelModuleId   labelModuleId;
+        #    LabelIdNum      labelIdNum;
+        #    str 9           tmp;
+        #
+        #    if (SysLabel::isLabelId(_labelId))
+        #    {
+        #        labelModuleId = substr(_labelId, 2, 3);
+        #        tmp           = substr(_labelId, 5, strlen(_labelId)-4);
+        #        labelIdNum    = str2int(tmp);
+        #    }
+        #
+        #    return [labelModuleId, labelIdNum];
+        #}
+      ENDSOURCE
+      SOURCE #seachStringBuildExactStr
+        #public static LabelType seachStringBuildExactStr(LabelType _searchString)
+        #{
+        #    return strfmt(#exactStr, _searchString);
+        #}
+      ENDSOURCE
+      SOURCE #searchStringBuildSpecialCharString
+        #public static LabelType searchStringBuildSpecialCharString(LabelType _searchString)
+        #{
+        #    LabelType labelType = _searchString;
+        #    int       length    = strlen(labelType);
+        #    int       start     = 1;
+        #    int       position;
+        #    #AOT
+        #    ;
+        #    position = strfind(labelType, #specialChars, start, length);
+        #
+        #    while (position)
+        #    {
+        #        labelType = strins(labelType, #AOTDelimiter, position);
+        #        start     = position + 2;
+        #        length++;
+        #
+        #        position  = strfind(labelType, #specialChars, start, length);
+        #    }
+        #
+        #    return labelType;
+        #}
+      ENDSOURCE
+      SOURCE #searchStringHasOnlySpecialChars
+        #public static boolean searchStringHasOnlySpecialChars(LabelType _searchString)
+        #{
+        #    boolean ret;
+        #
+        #    if (_searchString && !strrem(_searchString, #specialChars))
+        #    {
+        #        ret = true;
+        #    }
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+      SOURCE #searchStringHasSpecialChars
+        #static public boolean searchStringHasSpecialChars(LabelType _searchString)
+        #{
+        #    boolean ret;
+        #
+        #    if (strfind(_searchString, #specialChars, 1, strlen(_searchString)))
+        #    {
+        #        ret = true;
+        #    }
+        #
+        #    return ret;
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: CLS
+
+; Microsoft Dynamics AX Class: SysGlobalCache unloaded
+; --------------------------------------------------------------------------------
+  CLSVERSION 1
+  
+  CLASS #SysGlobalCache
+    PROPERTIES
+      Name                #SysGlobalCache
+      Extends             #
+      RunOn               #Called from
+    ENDPROPERTIES
+    
+    METHODS
+      Version: 3
+      SOURCE #classDeclaration
+        #// This is a framework class. Customizing this class may cause problems with future upgrades to the software.
+        #class SysGlobalCache
+        #{
+        #    Map maps;
+        #}
+      ENDSOURCE
+      SOURCE #clear
+        #public boolean clear(str owner)
+        #{
+        #    if (maps.exists(owner))
+        #    {
+        #        maps.remove(owner);
+        #    }
+        #    else
+        #    {
+        #        return false;
+        #    }
+        #
+        #    return true;
+        #}
+      ENDSOURCE
+      SOURCE #elements
+        #public int elements(str owner)
+        #{
+        #    Map map;
+        #    if (maps.exists(owner))
+        #    {
+        #        map = maps.lookup(owner);
+        #        return map.elements();
+        #    }
+        #    return 0;
+        #}
+      ENDSOURCE
+      SOURCE #get
+        #public anytype get(str owner, anytype key, anyType returnValue = '')
+        #{
+        #    Map map;
+        #    if (maps.exists(owner))
+        #    {
+        #        map = maps.lookup(owner);
+        #        if (map.exists(key))
+        #            return map.lookup(key);
+        #    }
+        #    return returnValue;
+        #}
+      ENDSOURCE
+      SOURCE #isSet
+        #public boolean isSet(str owner, anytype key)
+        #{
+        #    Map map;
+        #    if (maps.exists(owner))
+        #    {
+        #        map = maps.lookup(owner);
+        #        if (map.exists(key))
+        #            return true;
+        #    }
+        #    return false;
+        #}
+      ENDSOURCE
+      SOURCE #new
+        #private void new()
+        #{
+        #    maps = new Map(Types::String, Types::Class);
+        #}
+      ENDSOURCE
+      SOURCE #remove
+        #public boolean remove(str owner, anytype key)
+        #{
+        #    Map map;
+        #    if (maps.exists(owner))
+        #    {
+        #        map = maps.lookup(owner);
+        #    }
+        #    else
+        #    {
+        #        return false;
+        #    }
+        #    return map.remove(key);
+        #}
+      ENDSOURCE
+      SOURCE #set
+        #public boolean set(str owner, anytype key, anytype value)
+        #{
+        #    Map map;
+        #    if (maps.exists(owner))
+        #    {
+        #        map = maps.lookup(owner);
+        #    }
+        #    else
+        #    {
+        #        map = new Map(typeof(key), typeof(value));
+        #        maps.insert(owner, map);
+        #    }
+        #    return map.insert(key, value);
+        #}
+      ENDSOURCE
+      SOURCE #construct
+        #public static SysGlobalCache construct()
+        #{
+        #    return new SysGlobalCache();
+        #}
+      ENDSOURCE
+    ENDMETHODS
+  ENDCLASS
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : xpoToolsTest unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #xpoToolsTest
+   SHARED
+  PROPERTIES
+    Name                #xpoToolsTest
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 5
+      UTILOBJECTID 0
+      NODETYPE 215
+      NAME #JobHelloWorld
+    ENDNODE
+    GROUP #Grp1
+      PROPERTIES
+        Name                #Grp1
+        ProjectGroupType    #All
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 1
+        UTILOBJECTID 0
+        NODETYPE 296
+        NAME #ActivitiesMain
+      ENDNODE
+      GROUP #Grp12
+        PROPERTIES
+          Name                #Grp12
+          ProjectGroupType    #All
+          GroupMask           #
+          PreventEditProperties #No
+        ENDPROPERTIES
+        
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 40
+          UTILOBJECTID 1
+          NODETYPE 209
+          NAME #ABC
+        ENDNODE
+        GROUP #Grp123
+          PROPERTIES
+            Name                #Grp123
+            ProjectGroupType    #All
+            GroupMask           #
+            PreventEditProperties #No
+          ENDPROPERTIES
+          
+          BEGINNODE
+            FILETYPE 1
+            UTILTYPE 2
+            UTILOBJECTID 0
+            NODETYPE 1205
+            NAME #CLRObject
+          ENDNODE
+          BEGINNODE
+            FILETYPE 0
+            UTILTYPE 45
+            UTILOBJECTID 7609
+            NODETYPE 329
+            NAME #SysArgs
+          ENDNODE
+          ENDGROUP
+          
+        ENDGROUP
+        
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 3444
+        NODETYPE 329
+        NAME #SysGAC
+      ENDNODE
+      ENDGROUP
+      
+    BEGINNODE
+      FILETYPE 0
+      UTILTYPE 45
+      UTILOBJECTID 2052
+      NODETYPE 329
+      NAME #SysLabel
+    ENDNODE
+    GROUP #Grp2
+      PROPERTIES
+        Name                #Grp2
+        ProjectGroupType    #All
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 4097
+        NODETYPE 329
+        NAME #SysGlobalCache
+      ENDNODE
+      ENDGROUP
+      
+  ENDPROJECT
+  
+
+***Element: END

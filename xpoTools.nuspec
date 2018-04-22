@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>xpoTools</id>
+    <version>1.0.0</version>
+    <authors>Sergey Mazurkin</authors>
+    <licenseUrl>https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mazzy-ax/xpoTools</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Powershell cmdlets to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <tags>xpo split merge Axapta Microsoft Dynamics AX</tags>
+  </metadata>
+  <files>
+    <file src="xpoTools\**\*.*" target="\" />
+  </files>
+</package>
