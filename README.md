@@ -10,7 +10,7 @@ XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [te
 
 * convert jobs and classes `xpo` to `xpp` files (similar to `ax7`)
 * create target folders by groups in developer projects, AOT objects path, object prefix, project names
-* choose target folders structure by switch `pathStyle`
+* choose target folders structure by switch `pathStyle`: `Default`, `AOT`, `Flat`, `FlatAOT`, `Project`, `FlatProject`, `All` and `mazzy`
 * define own target folders structure
 * include and exclude files based on a file name. For example, to exclude `DEL_` objects
 * filter AOT objects based on a text within XPO elements
