@@ -15,14 +15,14 @@ XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [te
 * include and exclude files based on a file name. For example, to exclude `DEL_` objects
 * filter AOT objects based on a text within XPO elements
 * uses Encoding parameter
-* It have designed for parallel processing. See [examples/parallel.ps1](examples/parallel.ps1) folder.
+* It have designed for parallel processing. See [examples/parallel-split.ps1](examples/parallel-split.ps1) folder.
 
 ## Thanks
 
 *xpoTools* inspired by:
 
 * [Combine XPO Tool](https://msdn.microsoft.com/ru-ru/library/jj225589.aspx)
-* [AOTExportSeparated](https://github.com/DAXaholic/AOTExportSeparated)
+* [AOTExportSeparated](https://github.com/DAXaholic/AOTExportSeparated) by [DAXaholic](https://github.com/DAXaholic)
 
 ## Installation
 
@@ -55,7 +55,7 @@ or manual:
 
 ## Disclaimer
 
-*xpoTools* use regexp to manipulate with XPO files. It have no validation of XPO elements.
+*xpoTools* use regexp to parse XPO files. It have no validation of XPO elements.
 
 ## License
 
