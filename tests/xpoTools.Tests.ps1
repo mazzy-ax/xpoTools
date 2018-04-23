@@ -4,7 +4,7 @@ $moduleName = Split-Path $moduleRoot -Leaf
 
 $assets = "$projectRoot\tests\assets"
 
-Import-Module $moduleRoot -Force
+#Import-Module $moduleRoot -Force
 
 Describe "Basic function feature integration tests for module $moduleName" -Tags Build, Integration {
 

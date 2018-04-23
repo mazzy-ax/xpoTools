@@ -1,6 +1,6 @@
 #Requires -Version 5
-#Requires -module xpoTools
-#Requires -module SplitPipeline
+#Requires -Module xpoTools
+#Requires -Module SplitPipeline
 
 # To install the modules from https://www.powershellgallery.com/ run powershell commands:
 # PS> Install-Module xpoTools
@@ -11,12 +11,19 @@
 Set-StrictMode -Version Latest
 
 $load = 0 # 0 is auto. Try 10, 50, 100 or another values for a big xpo file.
-$projectRoot = Resolve-Path $PSScriptRoot\..
 
-# split
-Get-ChildItem $projectRoot\tests\assets -filter '*.xpo' | 
+$projectRoot = (Resolve-Path $PSScriptRoot\..).Path
+$data = @{
+    projectRoot = $projectRoot
+}
+
+# parallel split
+Get-ChildItem $projectRoot\tests\assets\*.xpo |
     Import-Xpo |
-    Split-Pipeline -Verbose -Load $load {process {
-        Split-xpo -Destination $projectRoot\.test -xpp -PathStyle mazzy -Encoding UTF8 -PassThru
-    }}
+    #ForEach-Object {
+    Split-Pipeline -Verbose -Load $load -Variable data -Module xpoTools {process {
+
+        Split-xpo -Items $_ -Destination $data.projectRoot, \.test -xpp -PathStyle mazzy -Encoding UTF8 -PassThru
+    }
+}
 

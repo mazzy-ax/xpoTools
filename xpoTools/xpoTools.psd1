@@ -7,7 +7,7 @@
 RootModule = 'xpoTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -103,7 +103,11 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @'
-Initial release
+## 1.0.1
+
+* Added object types for ax2012 in `Get-XpoType.ps1`. See #1
+* Fixed couple bugs and type in `Select-FileName.ps1`, `parallel-split.ps1` and `Import-Xpo.ps1`
+* Fixed readme.md
 '@
 
         # External dependent modules of this module

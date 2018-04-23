@@ -2,6 +2,8 @@ $projectRoot = Resolve-Path $PSScriptRoot\..
 $moduleRoot = Split-Path (Resolve-Path $projectRoot\*\*.psd1)
 $moduleName = Split-Path $moduleRoot -Leaf
 
+$script:manifest = $null
+
 Describe 'Nuget specification  Tests' -Tag 'Meta' {
 
     It 'Passes Test-ModuleManifest' {
@@ -24,7 +26,10 @@ Describe 'Nuget specification  Tests' -Tag 'Meta' {
     }
 
     It 'nuspec and manifest release notes are same' {
-        $nuspec.package.metadata.ReleaseNotes | Should Be ($manifest.PrivateData.PSData.ReleaseNotes)
+        $nuspecReleaseNotes = $nuspec.package.metadata.ReleaseNotes -replace '\s'
+        $manifestReleaseNotes = $manifest.PrivateData.PSData.ReleaseNotes -replace '\s'
+        
+        $nuspecReleaseNotes -eq $manifestReleaseNotes | Should Be $true
     }
 
     It 'nuspec and manifest projectUrl are same' {

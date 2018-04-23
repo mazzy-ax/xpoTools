@@ -1,8 +1,8 @@
-# [xpoTools](https://github.com/mazzy-ax/xpoTools)
+# xpoTools
 
-![version](https://img.shields.io/badge/version-1.0.0-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.0.1-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
-**xpoTools** is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of set of interdependent XPO files into a single XPO file.
+[xpoTools](https://github.com/mazzy-ax/xpoTools) is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of set of interdependent XPO files into a single XPO file.
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
 
@@ -45,7 +45,7 @@ or manual:
 * Download and unblock the latest .zip file.
 * Extract the .zip into your $PSModulePath, e.g. ~\Documents\WindowsPowerShell\Modules.
 * Ensure the extracted folder is named `xpoTools`.
-* Set an execution policy to RemoteSigned or Unrestricted to execute not signed modules `Set-ExecutionPolicy RemoteSigned`.
+* Set an execution policy to `RemoteSigned` or `Unrestricted` to execute not signed modules `Set-ExecutionPolicy RemoteSigned`.
 * Run `Import-Module Write-ProgressEx`.
 
 ## Changelog

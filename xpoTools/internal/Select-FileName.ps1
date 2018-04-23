@@ -22,7 +22,9 @@ function Select-FileName {
             $PathStyleScript = Get-PathStyle -Style $PathStyle
         }
 
-        $PathParts = $PathParts.Trim() -split '\s*[\\/]\s*'
+        if( $PathParts ) {
+            $PathParts = $PathParts.Trim() -split '\s*[\\/]\s*'
+        }
 
         $filePath = & $PathStyleScript -Item $Item -PathParts $PathParts -Ext $Ext
 

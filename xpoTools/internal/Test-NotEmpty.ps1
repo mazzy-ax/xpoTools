@@ -2,5 +2,5 @@
 Set-StrictMode -Version Latest
 
 filter Test-NotEmpty {
-    if ( $_ -and $_ -notmatch '^\s*$' ) { $_ }
+    if ( $_ -and ($_ -isnot [string] -or $_ -notmatch '^\s*$') ) { $_ }
 }

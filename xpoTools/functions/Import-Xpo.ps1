@@ -4,10 +4,10 @@ using namespace Microsoft.PowerShell.Commands
 Set-StrictMode -Version Latest
 
 function Import-Xpo {
-    [CmdletBinding(DefaultParameterSetName = 'fileName')]
+    [CmdletBinding(DefaultParameterSetName = 'FileName')]
     [OutputType([psObject])]
     Param (
-        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'fileName')]
+        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'FileName')]
         [string[]]$Path,
 
         [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'FileInfo')]
