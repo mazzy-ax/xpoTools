@@ -30,7 +30,7 @@ function Import-Xpo {
 
             $Texts = Get-Content $xpoFile.FullName -Delimiter '***Element: ' -Encoding $Encoding
 
-            if ( $Texts.Length -gt 2 -and $Texts[-1] -match 'END\s+$' ) {
+            if ( $Texts -and $Texts.Length -gt 2 -and $Texts[-1] -match 'END\s+$' ) {
                 $FileHeader = $Texts[0]
 
                 $Items = $Texts |
@@ -47,18 +47,6 @@ function Import-Xpo {
                 }
 
                 Write-Progress -Activity $funcName -Completed
-
-                # TODO [performance]: is it need parallel threads for next sentense?
-
-                $Items | Where-Object { $_ -and $_.Type.Tag -EQ 'CLS' } | ForEach-Object {
-                    Write-Verbose "$funcName converts xpo to xpp $_"
-                    $_.xppText = $_.Text | Select-Source | Select-xppClass
-                }
-
-                $Items | Where-Object { $_ -and $_.Type.Tag -EQ 'JOB' } | ForEach-Object {
-                    Write-Verbose "$funcName converts xpo to xpp $_"
-                    $_.xppText = $_.Text | Select-Source | Select-Object -First 1 -ExpandProperty Text | Select-TextLine
-                }
 
                 $Nodes = $Items | Where-Object { $_ -and $_.Type.Tag -EQ 'PRN' } | ForEach-Object {
                     Write-Verbose "$funcName collects nodes for the project $_"

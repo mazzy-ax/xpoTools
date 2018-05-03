@@ -7,7 +7,7 @@
 RootModule = 'xpoTools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.1'
+ModuleVersion = '1.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -103,10 +103,17 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @'
+## 1.1.0
+
+To increase a general performance:
+
+* moved: the generation of xpp-files is moved from xpo-import to split-xpo cmdlet
+* removed: the xpptext property from class [xpoItem] is unused and have removed
+
 ## 1.0.1
 
-* Added object types for ax2012 in `Get-XpoType.ps1`. See #1
-* Fixed couple bugs and type in `Select-FileName.ps1`, `parallel-split.ps1` and `Import-Xpo.ps1`
+* Added object types for ax2012 in Get-XpoType.ps1. See #1
+* Fixed couple bugs and type in Select-FileName.ps1, parallel-split.ps1 and Import-Xpo.ps1
 * Fixed readme.md
 '@
 

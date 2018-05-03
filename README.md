@@ -1,6 +1,6 @@
 # xpoTools
 
-![version](https://img.shields.io/badge/version-1.0.1-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version](https://img.shields.io/badge/version-1.1.0-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 [xpoTools](https://github.com/mazzy-ax/xpoTools) is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of set of interdependent XPO files into a single XPO file.
 
@@ -15,7 +15,6 @@ XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [te
 * include and exclude files based on a file name. For example, to exclude `DEL_` objects
 * filter AOT objects based on a text within XPO elements
 * uses Encoding parameter
-* It have designed for parallel processing. See [examples/parallel-split.ps1](examples/parallel-split.ps1) folder.
 
 ## Thanks
 

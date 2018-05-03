@@ -47,7 +47,6 @@ class xpoItem {
     }
 
     [xpoNode[]]$Node
-    [string[]]$xppText
     [xpoNode[]]$Group
     [xpoNode[]]$GroupNode
 

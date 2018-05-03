@@ -59,9 +59,13 @@ function Split-Xpo {
 
             $Item = $_
 
-            if ( $xpp -and $Item.xppText ) {
+            if ( $xpp -and $Item.Type.Tag -eq 'CLS' ) {
                 $Ext = '.xpp'
-                $s = $Item.xppText
+                $s = $Item.Text | Select-Source | Select-xppClass
+            }
+            elseif( $xpp -and $Item.Type.Tag -eq 'JOB' ) {
+                $Ext = '.xpp'
+                $s = $Item.Text | Select-Source | Select-Object -First 1 -ExpandProperty Text | Select-TextLine
             }
             else {
                 $Ext = '.xpo'
