@@ -1,8 +1,17 @@
 # xpoTools
 
-![version](https://img.shields.io/badge/version-1.1.0-green.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
+![version][version.svg] [![license MIT][license.svg]][license] [![PowerShell Gallery][ps.svg]][ps] [![NuGet][nuget.svg]][nuget]
 
-[xpoTools](https://github.com/mazzy-ax/xpoTools) is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of set of interdependent XPO files into a single XPO file.
+[project]:https://github.com/mazzy-ax/xpoTools
+[version.svg]:https://img.shields.io/badge/version-1.1.0-green.svg
+[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
+[license]:https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE
+[ps.svg]:https://img.shields.io/powershellgallery/dt/xpoTools.svg?colorB=4682B4
+[ps]:https://www.powershellgallery.com/packages/xpoTools
+[nuget.svg]:https://img.shields.io/nuget/dt/xpoTools.svg?label=NuGet&colorB=ef8b00
+[nuget]:https://www.nuget.org/packages/xpoTools/
+
+[xpoTools][project] is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
 
@@ -25,14 +34,14 @@ XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [te
 
 ## Installation
 
-Automatic install *xpoTools* module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/xpoTools):
+Automatic install *xpoTools* module from the [PowerShell Gallery][ps]:
 
 ```powershell
 Install-Module -Name xpoTools
 Import-Module xpoTools
 ```
 
-Automatic install Write-ProgressEx module from the [NuGet.org](https://www.nuget.org/packages/xpoTools):
+Automatic install Write-ProgressEx module from the [NuGet.org][nuget]:
 
 ```powershell
 Install-Package -Name xpoTools
@@ -42,10 +51,10 @@ Import-Module xpoTools
 or manual:
 
 * Download and unblock the latest .zip file.
-* Extract the .zip into your $PSModulePath, e.g. ~\Documents\WindowsPowerShell\Modules.
+* Extract the .zip into your `$PSModulePath`, e.g. `~\Documents\WindowsPowerShell\Modules`.
 * Ensure the extracted folder is named `xpoTools`.
 * Set an execution policy to `RemoteSigned` or `Unrestricted` to execute not signed modules `Set-ExecutionPolicy RemoteSigned`.
-* Run `Import-Module Write-ProgressEx`.
+* Run `Import-Module xpoTools`.
 
 ## Changelog
 
@@ -58,6 +67,6 @@ or manual:
 
 ## License
 
-This project is [licensed under the MIT License](LICENSE).
+This project is [licensed under the MIT License][license].
 
 mazzy@mazzy.ru
