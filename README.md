@@ -1,15 +1,15 @@
 # xpoTools
 
-![version][version.svg] [![license MIT][license.svg]][license] [![PowerShell Gallery][ps.svg]][ps] [![NuGet][nuget.svg]][nuget]
-
 [project]:https://github.com/mazzy-ax/xpoTools
 [version.svg]:https://img.shields.io/badge/version-1.1.0-green.svg
-[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
 [license]:https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE
-[ps.svg]:https://img.shields.io/powershellgallery/dt/xpoTools.svg?colorB=4682B4
+[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
 [ps]:https://www.powershellgallery.com/packages/xpoTools
-[nuget.svg]:https://img.shields.io/nuget/dt/xpoTools.svg?label=NuGet&colorB=ef8b00
+[ps.svg]:https://img.shields.io/powershellgallery/dt/xpoTools.svg?colorB=4682B4
 [nuget]:https://www.nuget.org/packages/xpoTools/
+[nuget.svg]:https://img.shields.io/nuget/dt/xpoTools.svg?label=NuGet&colorB=ef8b00
+
+[![version][version.svg]][project] [![license MIT][license.svg]][license] [![PowerShell Gallery][ps.svg]][ps] [![NuGet][nuget.svg]][nuget]
 
 [xpoTools][project] is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
 
