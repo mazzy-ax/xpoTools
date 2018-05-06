@@ -1,7 +1,4 @@
-﻿# mazzy@mazzy.ru, 2018-04-08
-# https://github.com/mazzy-ax/xpoTools
-
-@{
+﻿@{
 
 # Script module or binary module file associated with this manifest.
 RootModule = 'xpoTools.psm1'

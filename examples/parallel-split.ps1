@@ -2,7 +2,7 @@
 #Requires -Module xpoTools
 #Requires -Module SplitPipeline
 
-# To install the modules from https://www.powershellgallery.com/ run powershell commands:
+# To install modules from https://www.powershellgallery.com/packages/xpoTools run powershell commands:
 # PS> Install-Module xpoTools
 # PS> install-Module SplitPipeline
 #
@@ -17,10 +17,9 @@ $data = @{
     projectRoot = $projectRoot
 }
 
-# parallel split
+Write-Verbose 'parallel split'
 Get-ChildItem $projectRoot\tests\assets\*.xpo |
     Import-Xpo |
-    #ForEach-Object {
     Split-Pipeline -Verbose -Load $load -Variable data -Module xpoTools {process {
 
         Split-xpo -Items $_ -Destination $data.projectRoot, \.test -xpp -PathStyle mazzy -Encoding UTF8 -PassThru

@@ -1,7 +1,7 @@
 #Requires -Version 5
 #Requires -module xpoTools
 
-# To install the modules from https://www.powershellgallery.com/ run powershell commands:
+# To install the module from https://www.powershellgallery.com/packages/xpoTools run the powershell command:
 # PS> Install-Module xpoTools
 #
 # see https://github.com/mazzy-ax/xpoTools for details

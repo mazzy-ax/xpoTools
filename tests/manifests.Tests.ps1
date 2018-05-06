@@ -7,7 +7,7 @@ $readme = 'README.md'
 
 $script:manifest = $null
 
-Describe 'Module Manifest Tests' -Tag 'Meta' {
+Describe 'Module Manifest Tests' -Tag Meta {
 
     It 'has a valid module manifest file' {
         $script:manifest = Test-ModuleManifest -Path $moduleRoot\$moduleName.psd1
@@ -58,9 +58,16 @@ Describe 'Module Manifest Tests' -Tag 'Meta' {
         $manifest.Version -as [Version] | Should be ( $ChangelogVersion -as [Version] )
     }
 
+    It 'description have not back quote' {
+        $manifest.Description | Should -Not -Match '`'
+    }
+
+    It 'release notes have not back quote' {
+        $manifest.PrivateData.PSData.ReleaseNotes | Should -Not -Match '`'
+    }
 }
 
-Describe 'Nuget specification Tests' -Tag 'Meta' {
+Describe 'Nuget specification Tests' -Tag Meta {
 
     It 'has a valid nuspec file' {
         $file = Resolve-Path $projectRoot\$moduleName.nuspec
@@ -93,7 +100,7 @@ Describe 'Nuget specification Tests' -Tag 'Meta' {
 
 }
 
-Describe "$readme Tests" -Tag 'Meta' {
+Describe "$readme Tests" -Tag Meta {
 
     It "has a valid shields.io/badge/version in the $readme file" {
         Get-Content -Path $projectRoot\$readme |
