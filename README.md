@@ -1,19 +1,22 @@
 # xpoTools
 
 [project]:https://github.com/mazzy-ax/xpoTools
-[version.svg]:https://img.shields.io/badge/version-1.1.0-green.svg
 [license]:https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE
-[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
 [ps]:https://www.powershellgallery.com/packages/xpoTools
-[ps.svg]:https://img.shields.io/powershellgallery/dt/xpoTools.svg?colorB=4682B4
 [nuget]:https://www.nuget.org/packages/xpoTools/
-[nuget.svg]:https://img.shields.io/nuget/dt/xpoTools.svg?label=NuGet&colorB=ef8b00
+
+[version.svg]:https://img.shields.io/badge/version-1.1.0-green.svg
+[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
+[ps.svg]:https://img.shields.io/badge/Powershell-Gallery-4682B4.svg
+[nuget.svg]:https://img.shields.io/badge/downloads-NuGet-orange.svg
 
 [![version][version.svg]][project] [![license MIT][license.svg]][license] [![PowerShell Gallery][ps.svg]][ps] [![NuGet][nuget.svg]][nuget]
 
 [xpoTools][project] is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
+
+![xpoTools Icon](media/AxAppl.ico)
 
 *xpoTools* features:
 
