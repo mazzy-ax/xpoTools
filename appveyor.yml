@@ -9,27 +9,21 @@ only_commits:
     - xpoTools.nuspec
 
 init:
-- ps: >-
+- ps: |
     $PSVersionTable
-
     [System.Environment]::OSVersion
 
 install:
-- ps: >-
+- ps: |
     Install-PackageProvider -Name NuGet -Force | Out-Null
-
     Install-Module -Name Pester -Force
-
     Install-Module -Name PSScriptAnalyzer -Force
-
     Install-Module -Name SplitPipeline -Force
 
 build_script:
-- ps: >-
+- ps: |
     $ModuleName = 'xpoTools'
-
     $ModuleRoot = Join-Path ([Environment]::GetFolderPath('MyDocuments')) WindowsPowerShell\Modules\$ModuleName
-    
     Copy-Item $ModuleName $ModuleRoot -Recurse
 
 test_script:
