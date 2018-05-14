@@ -4,19 +4,16 @@
 [license]:https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE
 [ps]:https://www.powershellgallery.com/packages/xpoTools
 [nuget]:https://www.nuget.org/packages/xpoTools/
+[appveyor]:https://ci.appveyor.com/project/mazzy-ax/xpotools
 
-[version.svg]:https://img.shields.io/badge/version-1.1.0-green.svg
-[license.svg]:https://img.shields.io/badge/license-MIT-blue.svg
-[ps.svg]:https://img.shields.io/badge/Powershell-Gallery-4682B4.svg
-[nuget.svg]:https://img.shields.io/badge/downloads-NuGet-orange.svg
-
-[![version][version.svg]][project] [![license MIT][license.svg]][license] [![PowerShell Gallery][ps.svg]][ps] [![NuGet][nuget.svg]][nuget]
+[![Build status](https://ci.appveyor.com/api/projects/status/d8b8q8v0co9vukbv?svg=true)][appveyor]
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/xpoTools.svg)][ps]
+[![NuGet](https://buildstats.info/nuget/xpoTools)][nuget]
+<img src="https://raw.githubusercontent.com/mazzy-ax/xpoTools/master/media/AxAppl.ico" align="right" alt="xpoTools">
 
 [xpoTools][project] is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
-
-![xpoTools Icon](media/AxAppl.ico)
 
 *xpoTools* features:
 
@@ -28,7 +25,7 @@ XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [te
 * filter AOT objects based on a text within XPO elements
 * uses Encoding parameter
 
-## Thanks
+## Credits
 
 *xpoTools* inspired by:
 
@@ -70,6 +67,6 @@ or manual:
 
 ## License
 
-This project is [licensed under the MIT License][license].
+This project is released under the [licensed under the MIT License][license].
 
 mazzy@mazzy.ru

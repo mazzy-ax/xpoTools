@@ -6,7 +6,7 @@ $moduleName = Split-Path $moduleRoot -Leaf
 
 Describe "Module $moduleName examples Tests" -Tag Build, Examples {
 
-    Get-ChildItem $projectRoot\examples\*.ps1 -Recurse | ForEach-Object {
+    Get-ChildItem $projectRoot\examples\*.ps1 -Recurse -ErrorAction SilentlyContinue | ForEach-Object {
         It "ok for $_" {
             & $_ 3>&1 4>&1 | Out-Null
             $? | Should Be $true

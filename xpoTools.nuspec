@@ -6,22 +6,10 @@
     <authors>Sergey Mazurkin</authors>
     <licenseUrl>https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/mazzy-ax/xpoTools</projectUrl>
+    <iconUrl>https://github.com/mazzy-ax/xpoTools/blob/master/media/AxAppl.ico?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Powershell cmdlets to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012</description>
-    <releaseNotes>
-## 1.1.0
-
-To increase a general performance:
-
-* moved: the generation of xpp-files is moved from xpo-import to split-xpo cmdlet
-* removed: the xpptext property from class [xpoItem] is unused and have removed
-
-## 1.0.1
-
-* Added object types for ax2012 in Get-XpoType.ps1. See #1
-* Fixed couple bugs and type in Select-FileName.ps1, parallel-split.ps1 and Import-Xpo.ps1
-* Fixed readme.md
-</releaseNotes>
+    <releaseNotes>https://github.com/mazzy-ax/xpoTools/blob/master/CHANGELOG.md</releaseNotes>
     <tags>xpo split merge Axapta Microsoft Dynamics AX</tags>
   </metadata>
   <files>

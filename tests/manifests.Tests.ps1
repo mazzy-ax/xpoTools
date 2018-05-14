@@ -3,7 +3,6 @@ $moduleRoot = Split-Path (Resolve-Path $projectRoot\*\*.psd1)
 $moduleName = Split-Path $moduleRoot -Leaf
 
 $changelog = 'CHANGELOG.md'
-$readme = 'README.md'
 
 $script:manifest = $null
 
@@ -33,11 +32,11 @@ Describe 'Module Manifest Tests' -Tag Meta {
     $publicFunctions = (Get-ChildItem -Path $moduleRoot\functions\*.ps1).baseName
 
     It 'has valid functions to export' {
-        $manifest.ExportedFunctions.Keys | Should Be $publicFunctions
+        $manifest.ExportedFunctions.Keys | Sort-Object | Should Be $publicFunctions
     }
 
     It 'has valid cmdlets to export' {
-        $manifest.ExportedCmdlets.Keys | Should Be $publicFunctions
+        $manifest.ExportedCmdlets.Keys | Sort-Object | Should Be $publicFunctions
     }
 
     It 'has a valid version in the manifest' {
@@ -96,19 +95,6 @@ Describe 'Nuget specification Tests' -Tag Meta {
 
     It 'nuspec and manifest licenseUrl notes are same' {
         $nuspec.package.metadata.licenseUrl | Should Be ($manifest.PrivateData.PSData.LicenseUri)
-    }
-
-}
-
-Describe "$readme Tests" -Tag Meta {
-
-    It "has a valid shields.io/badge/version in the $readme file" {
-        Get-Content -Path $projectRoot\$readme |
-            Where-Object { $_ -match '\!\[version\]\(https://img\.shields\.io/badge/version-(?<Version>(\d+\.){1,3}\d+)-green\.svg\)' } | 
-            Select-Object -First 1 | Should Not BeNullOrEmpty
-
-        $ReadmeVersion = $matches.Version
-        $ReadmeVersion | Should Be $manifest.Version
     }
 
 }
