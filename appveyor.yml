@@ -26,12 +26,13 @@ init:
 
 install:
 - ps: |
-    Install-Package -Name Pester -Force -Scope CurrentUser -PackageManagementProvider PowerShellGet | Out-Null
+    Install-Package -Name Pester -Force -Scope CurrentUser -SkipPublisherCheck -PackageManagementProvider PowerShellGet | Out-Null
     Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
 
 build_script:
 - ps: |
-    $ModulePath = $env:PSModulePath -split ';' | select-object -first 1
+    $sep = if ( $isWindows ) { ';' } elseif ( $isLinux ) { ':' } else { throw }
+    $ModulePath = $env:PSModulePath -split $sep | select-object -first 1
     $ModuleRoot = Join-Path $ModulePath $env:APPVEYOR_PROJECT_NAME
     Copy-Item $env:APPVEYOR_PROJECT_NAME $ModuleRoot -Recurse
 

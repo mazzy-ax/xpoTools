@@ -1,6 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
-
 class xpoType {  
     [int]$NodeType
     [int]$UtilType

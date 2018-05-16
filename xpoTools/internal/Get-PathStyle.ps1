@@ -1,5 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
 
 $script:xpoDestinationPathStyle = @{
 

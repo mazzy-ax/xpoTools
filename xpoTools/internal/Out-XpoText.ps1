@@ -1,8 +1,3 @@
-#Requires -Version 5
-
-using namespace Microsoft.PowerShell.Commands
-Set-StrictMode -Version Latest
-
 function Out-XpoText {
     [CmdletBinding()]
     [OutputType([string])]
@@ -12,7 +7,7 @@ function Out-XpoText {
         [string[]]$Text,
         [switch]$Force,
         [switch]$NoClobber,
-        [FileSystemCmdletProviderEncoding]$Encoding = [FileSystemCmdletProviderEncoding]::Default,
+        $Encoding = 'UTF8',
         [switch]$PassThru
     )
 

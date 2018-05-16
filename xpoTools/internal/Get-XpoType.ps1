@@ -1,6 +1,4 @@
-﻿#Requires -Version 5
-Set-StrictMode -Version Latest
-
+﻿
 $script:xpoTypeInfo = @(
     [xpoType]@{AOTpath = @('Classes'); OneLevelAOTPath ='Classes'; UtilType = 45; NodeType = 329; Tag = 'CLS'; FilePrefix = 'Class'; SubTag = ''}
     [xpoType]@{AOTpath = @('Data Dictionary', 'Base Enums'); OneLevelAOTPath ='Base Enums'; UtilType = 40; NodeType = 209; Tag = 'DBE'; FilePrefix = 'Enum'; SubTag = ''}

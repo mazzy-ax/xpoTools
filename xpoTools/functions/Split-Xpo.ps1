@@ -1,8 +1,3 @@
-#Requires -Version 5
-
-using namespace Microsoft.PowerShell.Commands
-Set-StrictMode -Version Latest
-
 function Split-Xpo {
     [CmdletBinding()]
     [OutputType([string])]
@@ -35,7 +30,7 @@ function Split-Xpo {
         [scriptblock]$FilterScript = {$_},
 
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [FileSystemCmdletProviderEncoding]$Encoding = [FileSystemCmdletProviderEncoding]::Default,
+        $Encoding = 'UTF8',
 
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet('Default', 'mazzy', 'AOT', 'Flat', 'FlatAOT', 'FlatProject', 'Project', 'All')]

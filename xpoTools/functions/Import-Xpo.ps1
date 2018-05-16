@@ -1,8 +1,3 @@
-#Requires -Version 5
-
-using namespace Microsoft.PowerShell.Commands
-Set-StrictMode -Version Latest
-
 function Import-Xpo {
     [CmdletBinding(DefaultParameterSetName = 'FileName')]
     [OutputType([psObject])]
@@ -14,7 +9,7 @@ function Import-Xpo {
         [System.IO.FileInfo[]]$xpoFiles,
 
         [scriptblock]$FilterScript = {$_},
-        [FileSystemCmdletProviderEncoding]$Encoding = [FileSystemCmdletProviderEncoding]::Default
+        $Encoding = 'UTF8'
     )
 
     process {

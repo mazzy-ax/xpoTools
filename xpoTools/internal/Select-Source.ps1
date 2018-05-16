@@ -1,6 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
-
 function Select-Source {
     [CmdletBinding()]
     [OutputType([xpoNode])]

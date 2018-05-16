@@ -1,6 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
-
 function Test-DestinationPath {
     [CmdletBinding()]
     [OutputType([string])]

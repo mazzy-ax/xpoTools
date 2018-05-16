@@ -1,6 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
-
 function Merge-Xpo {
     [CmdletBinding()]
     [OutputType([string])]
@@ -21,7 +18,7 @@ function Merge-Xpo {
         [scriptblock]$FilterScript = {$_},
         
         [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [FileSystemCmdletProviderEncoding]$Encoding = [FileSystemCmdletProviderEncoding]::Default,
+        $Encoding = 'UTF8',
 
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [switch]$PassThru

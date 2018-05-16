@@ -1,6 +1,3 @@
-#Requires -Version 5
-Set-StrictMode -Version Latest
-
 [string]$script:Ident = "".PadRight(4) # 4 spaces
 
 function Select-xppClass {
