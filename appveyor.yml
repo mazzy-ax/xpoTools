@@ -2,6 +2,8 @@
 
 version: 1.1.{build}
 
+skip_non_tags: true
+
 skip_commits:
   message: /readme.*|doc.*/
 
@@ -10,6 +12,13 @@ only_commits:
     - $env:APPVEYOR_PROJECT_NAME/
     - $env:APPVEYOR_PROJECT_NAME.nuspec
 
+image:
+- Visual Studio 2017
+- Visual Studio 2015
+- Visual Studio 2013
+- WMF 5
+- Ubuntu
+
 init:
 - ps: |
     $PSVersionTable
@@ -17,7 +26,8 @@ init:
 
 install:
 - ps: |
-    Install-Module -Name Pester, PSScriptAnalyzer, SplitPipeline -Force
+    Install-Package -Name Pester -Force -Scope CurrentUser -PackageManagementProvider PowerShellGet | Out-Null
+    Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
 
 build_script:
 - ps: |
@@ -27,4 +37,7 @@ build_script:
 
 test_script:
 - ps: |
-    Invoke-Pester -EnableExit
+    $res = Invoke-Pester -OutputFormat NUnitXml -OutputFile TestsResults.xml -PassThru
+    $dest = "https://ci.appveyor.com/api/testresults/nunit/$($env:APPVEYOR_JOB_ID)"
+    (New-Object 'System.Net.WebClient').UploadFile($dest, (Resolve-Path TestsResults.xml))
+    if ($res.FailedCount) { throw "$($res.FailedCount) tests failed."}
