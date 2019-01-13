@@ -1,3 +1,6 @@
+#Requires -Version 5
+#Requires -module xpoTools
+#Requires -module SplitPipeline
 
 # To install modules from https://www.powershellgallery.com/packages/xpoTools run powershell commands:
 # PS> Install-Module xpoTools

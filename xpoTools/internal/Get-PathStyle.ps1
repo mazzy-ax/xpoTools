@@ -1,13 +1,22 @@
 
 $script:xpoDestinationPathStyle = @{
 
-    mazzy = {
+    mazzy       = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $fileName = @() + $Item.Type.FilePrefix + '_' + $Item.Name + $ext -join ''
 
         $filePath = $Item.Node | ForEach-Object {
             $GroupPath = if ( $_ ) { $_.Path } else { '' }
+
+            $adjacentFolders = @() + ($PathParts | Select-Object -Last 1) + ($GroupPath | Select-Object -First 1)
+            if ( -not($adjacentFolders -match '^(Src|Test(s)?|Example(s)?)$') ) {
+                switch -w ($fileName) {
+                    'Job_*.xpp' { $GroupPath = @() + 'Examples' + $GroupPath; break }
+                    'Class_*test.xpp' { $GroupPath = @() + 'Tests' + $GroupPath; break }
+                    Default { $GroupPath = , 'Src' + $GroupPath; break }
+                }
+            }
 
             $p = @() + $PathParts + $GroupPath + $fileName | Test-NotEmpty
             $p -join '\'
@@ -17,7 +26,7 @@ $script:xpoDestinationPathStyle = @{
         $filePath | Select-Object
     }
 
-    Flat = {
+    Flat        = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $fileName = @() + $Item.Type.FilePrefix + '_' + $Item.Name + $ext -join ''
@@ -30,7 +39,7 @@ $script:xpoDestinationPathStyle = @{
 
     }
 
-    Default = {
+    Default     = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $AOTpath = if ( $Item -and $Item.Type ) { $Item.Type.AOTpath } else { '' }
@@ -43,7 +52,7 @@ $script:xpoDestinationPathStyle = @{
         $filePath
     }
 
-    AOT = {
+    AOT         = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $AOTpath = if ( $Item -and $Item.Type ) { $Item.Type.AOTpath } else { '' }
@@ -56,7 +65,7 @@ $script:xpoDestinationPathStyle = @{
         $filePath
     }
 
-    FlatAOT = {
+    FlatAOT     = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $AOTpath = if ( $Item -and $Item.Type ) { $Item.Type.OneLevelAOTPath } else { '' }
@@ -69,7 +78,7 @@ $script:xpoDestinationPathStyle = @{
         $filePath
     }
 
-    Project = {
+    Project     = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $fileName = @() + $Item.Type.FilePrefix + '_' + $Item.Name + $ext -join ''
@@ -102,7 +111,7 @@ $script:xpoDestinationPathStyle = @{
         $filePath | Select-Object
     }
 
-    All = {
+    All         = {
         param([xpoItem]$Item, [String[]]$PathParts, [String]$Ext)
 
         $AOTpath = if ( $_ -and $Item.Type ) { $_.Type.AOTpath } else { '' }

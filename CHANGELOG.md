@@ -2,6 +2,10 @@
 
 All notable changes to the [project](https://github.com/mazzy-ax/xpoTools) will be documented in this file. See also <https://github.com/mazzy-ax/xpoTools/releases>.
 
+## [1.2.0](https://github.com/mazzy-ax/xpoTools/compare/1.1.0...1.2.0) - 2019-01-13
+
+* mazzy's path style updated
+
 ## [1.1.0](https://github.com/mazzy-ax/xpoTools/compare/1.0.1...1.1.0) - 2018-05-03
 
 * To increase a general performance:
