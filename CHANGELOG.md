@@ -5,7 +5,7 @@ All notable changes to the [project](https://github.com/mazzy-ax/xpoTools) will 
 ## [1.1.0](https://github.com/mazzy-ax/xpoTools/compare/1.0.1...1.1.0) - 2018-05-03
 
 * To increase a general performance:
-  * moved: the generation of xpp-files is moved from `xpo-import` to `split-xpo` cmdlet
+  * moved: the generation of xpp-files is moved from `xpo-import` to `split-xpo` advanced function
   * removed: the `xpptext` property from class [xpoItem] is unused and have removed
 
 * Small updated for README and tests of the project meta.

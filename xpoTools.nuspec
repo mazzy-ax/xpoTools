@@ -8,7 +8,7 @@
     <projectUrl>https://github.com/mazzy-ax/xpoTools</projectUrl>
     <iconUrl>https://github.com/mazzy-ax/xpoTools/blob/master/media/AxAppl.ico?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Powershell cmdlets to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012</description>
+    <description>Powershell advanced functions to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012</description>
     <releaseNotes>https://github.com/mazzy-ax/xpoTools/blob/master/CHANGELOG.md</releaseNotes>
     <tags>xpo split merge Axapta Microsoft Dynamics AX</tags>
   </metadata>

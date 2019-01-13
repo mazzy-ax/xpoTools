@@ -22,7 +22,7 @@ CompanyName = 'mazzy'
 Copyright = 'Copyright (c) 2018 Sergey Mazurkin, licensed under MIT License.'
 
 # Description of the functionality provided by this module
-Description = 'Powershell cmdlets to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012'
+Description = 'Powershell advanced functions to split and to merge XPO files contains AOT objects of Microsoft Dynamics AX (Axapta) 3.0, 4.0, 2009, 2012'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '5.0'
@@ -64,7 +64,7 @@ PowerShellVersion = '5.0'
 FunctionsToExport = @('Import-Xpo', 'Merge-Xpo', 'Split-Xpo')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = @('Import-Xpo', 'Merge-Xpo', 'Split-Xpo')
+CmdletsToExport = @()
 
 # Variables to export from this module
 VariablesToExport = @()

@@ -11,7 +11,7 @@
 [![NuGet](https://buildstats.info/nuget/xpoTools)][nuget]
 <img src="https://raw.githubusercontent.com/mazzy-ax/xpoTools/master/media/AxAppl.ico" align="right" alt="xpoTools">
 
-[xpoTools][project] is a Powershell module contains cmdlets that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
+[xpoTools][project] is a Powershell module contains advanced functions that splits one XPO file into separate XPO files and combines a set of interdependent XPO files into a single XPO file.
 
 XPO file is a text file contains Microsoft Dynamics AX (Axapta) objects. See [tests/assets](tests/assets) folder for example.
 
