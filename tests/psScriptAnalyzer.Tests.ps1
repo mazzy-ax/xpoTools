@@ -2,11 +2,16 @@ $projectRoot = Resolve-Path "$PSScriptRoot\.."
 $moduleRoot = Split-Path (Resolve-Path "$projectRoot\*\*.psd1")
 $moduleName = Split-Path $moduleRoot -Leaf
 
-Describe "PSScriptAnalyzer Rules for $moduleName" -Tag Meta, BestPractice, BP {
-    $analysis = Invoke-ScriptAnalyzer -Path $projectRoot -Recurse
+$ExcludeRules = @(
+    'PSUseShouldProcessForStateChangingFunctions'
+)
 
-    It "Should be Ok" {
-        $analysis | Should -BeNullOrEmpty
+Describe "PSScriptAnalyzer Rules for $moduleName" -Tag Meta, BestPractice, BP {
+    $analysis = Invoke-ScriptAnalyzer -Path $projectRoot -ExcludeRule $ExcludeRules -Recurse
+    $analysis | Out-Default
+
+    It "Should have no failures" {
+        $analysis.Count | Should -Be 0
     }
 
 }

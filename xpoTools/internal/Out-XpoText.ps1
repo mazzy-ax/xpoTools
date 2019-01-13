@@ -15,7 +15,7 @@ function Out-XpoText {
         $funcName = $MyInvocation.InvocationName
         Write-Verbose "$funcName`: $Path"
 
-        $Path | 
+        $Path |
             Split-Path -Parent |
             Test-NotEmpty |
             Where-Object { -not (Test-Path -Path $_) } |
@@ -28,7 +28,7 @@ function Out-XpoText {
         $Path |
             Test-NotEmpty |
             ForEach-Object {
-                
+
             Write-Verbose "$funcName`: write file $_"
             $Text | Out-File -FilePath $_ -Encoding $Encoding -NoNewline -Force:$Force -NoClobber:$NoClobber
 

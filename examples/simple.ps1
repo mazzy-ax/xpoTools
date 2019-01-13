@@ -9,7 +9,7 @@
 $projectRoot = Resolve-Path $PSScriptRoot\..
 
 Write-Verbose 'Split'
-Get-ChildItem $projectRoot\tests\assets\*.xpo | 
+Get-ChildItem $projectRoot\tests\assets\*.xpo |
     Import-Xpo |
     Split-xpo -Destination $projectRoot\.test -xpp -PathStyle mazzy -Encoding UTF8 -PassThru
 

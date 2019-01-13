@@ -35,7 +35,7 @@ function Split-Xpo {
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [ValidateSet('Default', 'mazzy', 'AOT', 'Flat', 'FlatAOT', 'FlatProject', 'Project', 'All')]
         [string]$PathStyle = 'Default',
-        
+
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [scriptblock]$PathStyleScript,
 

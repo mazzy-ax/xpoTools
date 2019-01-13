@@ -16,7 +16,7 @@ function Merge-Xpo {
 
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         [scriptblock]$FilterScript = {$_},
-        
+
         [Parameter(ValueFromPipelineByPropertyName = $true)]
         $Encoding = 'UTF8',
 

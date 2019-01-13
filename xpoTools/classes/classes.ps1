@@ -1,4 +1,4 @@
-class xpoType {  
+class xpoType {
     [int]$NodeType
     [int]$UtilType
     [string]$Tag

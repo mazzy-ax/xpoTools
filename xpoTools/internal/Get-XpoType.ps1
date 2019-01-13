@@ -30,7 +30,7 @@ $script:xpoTypeInfo = @(
     [xpoType]@{AOTpath = @('Data Dictionary', 'Perspectives'); OneLevelAOTPath ='Perspectives'; UtilType = 66; NodeType = 1311; Tag = 'PRS'; FilePrefix = 'Perspective'; SubTag = ''}
     [xpoType]@{AOTpath = @('Services'); OneLevelAOTPath ='Services'; UtilType = 76; NodeType = 1321; Tag = 'SVC'; FilePrefix = 'Service'; SubTag = ''}
     [xpoType]@{AOTpath = @('Service Groups'); OneLevelAOTPath ='Service Groups'; UtilType = 137; NodeType = 1325; Tag = 'SVG'; FilePrefix = 'ServiceGroup'; SubTag = ''}
-    
+
     [xpoType]@{AOTpath = @('Web', 'Menu Items', 'URL'); OneLevelAOTPath ='Web URL Items'; UtilType = 55; NodeType = 864; Tag = 'WMU'; FilePrefix = 'WebUrlItem'; SubTag = ''}
     [xpoType]@{AOTpath = @('Web', 'Menu Items', 'Actions'); OneLevelAOTPath ='Web Action Menu Items'; UtilType = 56; NodeType = 866; Tag = 'WMA'; FilePrefix = 'WebActionItem'; SubTag = ''}
     [xpoType]@{AOTpath = @('Web', 'Menus'); OneLevelAOTPath ='Web Menus'; UtilType = 30; NodeType = 806; Tag = 'WME'; FilePrefix = 'WebMenu'; SubTag = ''}

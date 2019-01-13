@@ -1,22 +1,16 @@
 # See http://www.appveyor.com/docs/appveyor-yml for many more options
 
-version: 1.1.{build}
-
-skip_non_tags: true
-
-skip_commits:
-  message: /readme.*|doc.*/
+version: 1.1.0.{build}
 
 only_commits:
   files:
     - $env:APPVEYOR_PROJECT_NAME/
     - $env:APPVEYOR_PROJECT_NAME.nuspec
+    - Tests/
+    - appveyor.yml
 
 image:
 - Visual Studio 2017
-- Visual Studio 2015
-- Visual Studio 2013
-- WMF 5
 - Ubuntu
 
 init:
@@ -26,15 +20,12 @@ init:
 
 install:
 - ps: |
-    Install-Package -Name Pester -Force -Scope CurrentUser -SkipPublisherCheck -PackageManagementProvider PowerShellGet | Out-Null
+    Install-Module -Name Pester -Force -Scope CurrentUser -SkipPublisherCheck
     Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
 
 build_script:
 - ps: |
-    $sep = if ( $isWindows ) { ';' } elseif ( $isLinux ) { ':' } else { throw }
-    $ModulePath = $env:PSModulePath -split $sep | select-object -first 1
-    $ModuleRoot = Join-Path $ModulePath $env:APPVEYOR_PROJECT_NAME
-    Copy-Item $env:APPVEYOR_PROJECT_NAME $ModuleRoot -Recurse
+    Import-Module ./$env:APPVEYOR_PROJECT_NAME
 
 test_script:
 - ps: |
