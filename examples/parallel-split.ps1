@@ -19,7 +19,8 @@ Write-Verbose 'parallel split'
 Get-ChildItem $projectRoot\tests\assets\*.xpo |
     Import-Xpo |
     Split-Pipeline -Verbose -Load $load -Variable data {process {
-        Import-Module .\xpoTools
+        Write-Host $projectRoot\xpoTools
+        Import-Module $projectRoot\xpoTools
         Split-xpo -Items $_ -Destination $data.projectRoot, .test -xpp -PathStyle mazzy -Encoding UTF8 -PassThru
     }
 }
