@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>xpoTools</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <authors>Sergey Mazurkin</authors>
-    <licenseUrl>https://github.com/mazzy-ax/xpoTools/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/mazzy-ax/xpoTools</projectUrl>
     <iconUrl>https://github.com/mazzy-ax/xpoTools/blob/master/media/AxAppl.ico?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
